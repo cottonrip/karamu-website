@@ -1,0 +1,93 @@
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Jetbrains Mono';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 70px;
+    height: 70px;
+    background-color: #ffcccc;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.title {
+    font-size: 60px;
+}
+
+.info {
+    margin-bottom: 20px;
+}
+
+.like-item {
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: #000;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-button {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.discord {
+    background-color: #5865f2;
+}
+
+.tiktok {
+    background-color: #aa0f51;
+}
+
+.youtube {
+    background-color: #ff0000;
+}
+
+.pi {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.flag {
+    width: 20px;
+    height: 17px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
