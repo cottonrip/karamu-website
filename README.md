@@ -1,2 +1,2 @@
 # karamu-website
-karamu.one
+a website i made for my friend
