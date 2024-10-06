@@ -1,31 +1,37 @@
 // idk lol
 
-document.querySelectorAll('.button, .social-button').forEach(button => {
-    button.addEventListener('click', () => {
-        console.log(`${button.textContent} button clicked`);
-    });
+document.querySelectorAll(".button, .social-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    console.log(`${button.textContent} button clicked`);
+  });
 });
 
 // subs
 
 async function getData() {
-    const data = await fetch('https://corsproxy.io/?https://studio.nia-statistics.com/api/channel/UCPW_cNzrDSf0xejLOKvV7Cg').then(resp=>resp.json());
-    document.querySelector('#elementID').innerHTML = data.channels.counts[2].count
-    }
-    getData();
-    setInterval(getData, 2*1000); // 2 seconds update time
+  const data = await fetch(
+    "https://corsproxy.io/?https://studio.nia-statistics.com/api/channel/UCPW_cNzrDSf0xejLOKvV7Cg"
+  ).then((resp) => resp.json());
+  elementContent = document.getElementById("elementID").innerHTML;
+  var prevsubs = parseFloat(elementContent.replace(/,/g, ""));
+  var currentsubs = data.channels.counts[2].count;
+  var c = new CountUp("elementID", prevsubs, currentsubs);
+  c.start();
+}
+getData();
+setInterval(getData, 2 * 1000); // 2 seconds update time
 
 // lanyard
 
-const LANYARD_WS = 'wss://api.lanyard.rest/socket';
+const LANYARD_WS = "wss://api.lanyard.rest/socket";
 const LANYARD_OP = {
   PRESENCE: 0,
   HELLO: 1,
   INITIALIZE: 2,
   HEARTBEAT: 3,
 };
-const EVENTS_TO_CALLBACK = ['INIT_STATE', 'PRESENCE_UPDATE'];
-const DISCORD_ID = '902294338283929611';
+const EVENTS_TO_CALLBACK = ["INIT_STATE", "PRESENCE_UPDATE"];
+const DISCORD_ID = "902294338283929611";
 
 let spotifyBarTimer = null;
 
@@ -37,7 +43,12 @@ function initializeLanyard(callback) {
 
     switch (received.op) {
       case LANYARD_OP.HELLO: {
-        ws.send(JSON.stringify({ op: LANYARD_OP.INITIALIZE, d: { subscribe_to_id: DISCORD_ID } }));
+        ws.send(
+          JSON.stringify({
+            op: LANYARD_OP.INITIALIZE,
+            d: { subscribe_to_id: DISCORD_ID },
+          })
+        );
 
         setInterval(() => {
           ws.send(JSON.stringify({ op: LANYARD_OP.HEARTBEAT }));
@@ -65,10 +76,10 @@ initializeLanyard((data) => {
 function setupBasicInfo({ discord_user, discord_status, activities }) {
   const { username, discriminator, avatar } = discord_user;
   const colorCodes = {
-    online: '#30d158',
-    offline: '#8e8e93',
-    idle: '#ffd60a',
-    dnd: '#ff453a',
+    online: "#30d158",
+    offline: "#8e8e93",
+    idle: "#ffd60a",
+    dnd: "#ff453a",
   };
 
   let status = discord_status;
@@ -80,7 +91,7 @@ function setupBasicInfo({ discord_user, discord_status, activities }) {
     }
   }
 
-  const descriptionElement = document.getElementById('description');
+  const descriptionElement = document.getElementById("description");
   descriptionElement.innerText = `@${username} [${status}]`;
   descriptionElement.style.color = colorCodes[discord_status];
 }
@@ -88,10 +99,10 @@ function setupBasicInfo({ discord_user, discord_status, activities }) {
 function setupSpotify({ listening_to_spotify, spotify }) {
   if (spotifyBarTimer) clearInterval(spotifyBarTimer);
 
-  const spotifyElement = document.getElementById('spotify-song');
+  const spotifyElement = document.getElementById("spotify-song");
 
   if (!listening_to_spotify) {
-    spotifyElement.innerText = 'No song currently playing';
+    spotifyElement.innerText = "No song currently playing";
     return;
   }
 
