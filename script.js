@@ -110,3 +110,11 @@ function setupSpotify({ listening_to_spotify, spotify }) {
 
   spotifyElement.innerText = `Currently playing: ${song} by ${artist}`;
 }
+
+// view count
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-N0508K6X7P');
