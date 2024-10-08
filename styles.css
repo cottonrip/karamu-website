@@ -17,24 +17,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.dot {
-    width: 70px;
-    height: 70px;
-    background-color: #ffcccc;
+.pfp {
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     margin-right: 15px;
 }
 
 .title {
     font-size: 60px;
+    font-family: Dela Gothic One;
+    font-weight: normal;
     margin: 0;
+    height: 75px;
+    display: flex;
+    align-items: center;
 }
 
 .info {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .like-item {
@@ -44,7 +48,7 @@ body {
 .buttons {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .button {
@@ -61,10 +65,13 @@ body {
 }
 
 .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: #fff;
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 0 7.5px;
     border-radius: 5px;
     font-weight: bold;
 }
@@ -81,6 +88,10 @@ body {
     background-color: #ff0000;
 }
 
+.reddit {
+    background-color: #ff4500;
+}
+
 .pi {
     color: #ffffff;
     text-decoration: none;
@@ -95,4 +106,38 @@ body {
 
 .discord-status {
     font-size: 16px;
+}
+
+p {
+    margin: 7.5px 0px;
+}
+
+.social-icon {
+    width: 20px;
+}
+
+.sub-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: #0000;
+    border: solid 3px #fff1;
+    border-radius: 5px;
+    padding: 7.5px;
+    width: fit-content;
+}
+
+.live {
+    margin: 0;
+    font-family: Dela Gothic One;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+.pi-pfp {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 7.5px;
 }
